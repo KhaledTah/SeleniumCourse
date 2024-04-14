@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Practice Suite">
+
+
+<!--   
+<test name="Test 1">
+      <classes>
+      <class name="defaultpackage.TestCase_TestNG"/>
+      </classes>
+  </test>   
+   
+  <test name="Test 2">
+      <parameter name="username" value="admin"/>
+      <parameter name="password" value="superduper"/>
+            <parameter name="isloggedIn" value="True"/>
+
+      <classes>
+      <class name="defaultpackage.TestCase11_1"/>
+      </classes>
+  </test>  
+  
+    <test name="Test 3">
+      <parameter name="username" value="admin"/>
+      <parameter name="password" value="false"/>
+            <parameter name="isloggedIn" value="False"/>
+
+      <classes>
+      <class name="defaultpackage.TestCase11_1"/>
+      </classes>
+  </test> 
+     
+  -->
+   
+  <test name="Test 5">
+      <parameter name="username" value="admin"/>
+      <parameter name="password" value="superduper"/>
+            <parameter name="isloggedIn" value="True"/>
+
+      <classes>
+      <class name="secondpackage.TestCaseGoogleSearch"/>
+      </classes>
+  </test> <!-- Test -->  
+  
+    <test name="Test 6">
+      <parameter name="username" value="admin"/>
+      <parameter name="password" value="false"/>
+            <parameter name="isloggedIn" value="False"/>
+
+      <classes>
+      <class name="secondpackage.TestCaseGoogleSearch"/>
+      </classes>
+  </test> <!-- Test -->  
+
+
+
+
+</suite> <!-- Suite -->
