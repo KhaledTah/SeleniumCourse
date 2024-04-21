@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Test 3"
+           tests="3"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="9,727">
+    <properties></properties>
+
+
+
+            <testcase
+                name="SearchSelenium0"
+                time="2,743"
+                classname="fourthpackage.TestCaseGoogleSearch1">
+            </testcase>
+            <testcase
+                name="SearchSelenium"
+                time="2,651"
+                classname="fourthpackage.TestCaseGoogleSearch1">
+            </testcase>
+            <testcase
+                name="SearchCTG"
+                time="4,333"
+                classname="fourthpackage.TestCaseGoogleSearch1">
+            </testcase>
+</testsuite>

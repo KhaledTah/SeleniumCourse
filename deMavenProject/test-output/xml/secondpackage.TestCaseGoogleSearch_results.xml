@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Test 6"
+           tests="2"
+           failures="2"
+           errors="0"
+           skipped="0"
+           time="4,529">
+    <properties></properties>
+
+            <testcase
+                name="SearchCTG"
+                time="2,421"
+                classname="secondpackage.TestCaseGoogleSearch">
+
+            <failure type="org.openqa.selenium.ElementNotInteractableException" message="element not interactable
+  (Session info: chrome=123.0.6312.122)
+Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;22&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [531b772df55c3cc33e0c5f856bacd45e, clickElement {id=f.7A6C4F3C235C4558C9B3BA2720D520CE.d.1500C4A1BD84F9D105B2EC8154DE05D7.e.33}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 123.0.6312.122, chrome: {chromedriverVersion: 123.0.6312.122 (31f8248cdd9..., userDataDir: C:\Users\ktahriou\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64322}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64322/devtoo..., se:cdpVersion: 123.0.6312.122, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (531b772df55c3cc33e0c5f856bacd45e)] -&gt; name: btnK]
+Session ID: 531b772df55c3cc33e0c5f856bacd45e">
+                <![CDATA[org.openqa.selenium.ElementNotInteractableException: element not interactable
+  (Session info: chrome=123.0.6312.122)
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '22'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [531b772df55c3cc33e0c5f856bacd45e, clickElement {id=f.7A6C4F3C235C4558C9B3BA2720D520CE.d.1500C4A1BD84F9D105B2EC8154DE05D7.e.33}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 123.0.6312.122, chrome: {chromedriverVersion: 123.0.6312.122 (31f8248cdd9..., userDataDir: C:\Users\ktahriou\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64322}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64322/devtoo..., se:cdpVersion: 123.0.6312.122, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (531b772df55c3cc33e0c5f856bacd45e)] -> name: btnK]
+Session ID: 531b772df55c3cc33e0c5f856bacd45e
+                java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)secondpackage.TestCaseGoogleSearch.SearchCTG(TestCaseGoogleSearch.java:32)java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)java.base/java.lang.reflect.Method.invoke(Method.java:580)org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)org.testng.internal.Invoker.invokeMethod(Invoker.java:661)org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)org.testng.TestRunner.privateRun(TestRunner.java:744)org.testng.TestRunner.run(TestRunner.java:602)org.testng.SuiteRunner.runTest(SuiteRunner.java:380)org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)org.testng.SuiteRunner.run(SuiteRunner.java:289)org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)org.testng.TestNG.runSuitesLocally(TestNG.java:1226)org.testng.TestNG.runSuites(TestNG.java:1144)org.testng.TestNG.run(TestNG.java:1115)org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
+]]>
+            </failure>
+    </testcase>
+            <testcase
+                name="SearchSelenium"
+                time="2,108"
+                classname="secondpackage.TestCaseGoogleSearch">
+
+            <failure type="org.openqa.selenium.ElementNotInteractableException" message="element not interactable
+  (Session info: chrome=123.0.6312.122)
+Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;22&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [9ee1bae5877fe9db170b61f3184f1f16, clickElement {id=f.25732BD20476A1A53B8A61C3DEAE2E7B.d.479F0145AC167B86D799E60E8D38A404.e.33}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 123.0.6312.122, chrome: {chromedriverVersion: 123.0.6312.122 (31f8248cdd9..., userDataDir: C:\Users\ktahriou\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64352}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64352/devtoo..., se:cdpVersion: 123.0.6312.122, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (9ee1bae5877fe9db170b61f3184f1f16)] -&gt; name: btnK]
+Session ID: 9ee1bae5877fe9db170b61f3184f1f16">
+                <![CDATA[org.openqa.selenium.ElementNotInteractableException: element not interactable
+  (Session info: chrome=123.0.6312.122)
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '22'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [9ee1bae5877fe9db170b61f3184f1f16, clickElement {id=f.25732BD20476A1A53B8A61C3DEAE2E7B.d.479F0145AC167B86D799E60E8D38A404.e.33}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 123.0.6312.122, chrome: {chromedriverVersion: 123.0.6312.122 (31f8248cdd9..., userDataDir: C:\Users\ktahriou\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64352}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64352/devtoo..., se:cdpVersion: 123.0.6312.122, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (9ee1bae5877fe9db170b61f3184f1f16)] -> name: btnK]
+Session ID: 9ee1bae5877fe9db170b61f3184f1f16
+                java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)secondpackage.TestCaseGoogleSearch.SearchSelenium(TestCaseGoogleSearch.java:21)java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)java.base/java.lang.reflect.Method.invoke(Method.java:580)org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)org.testng.internal.Invoker.invokeMethod(Invoker.java:661)org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)org.testng.TestRunner.privateRun(TestRunner.java:744)org.testng.TestRunner.run(TestRunner.java:602)org.testng.SuiteRunner.runTest(SuiteRunner.java:380)org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)org.testng.SuiteRunner.run(SuiteRunner.java:289)org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)org.testng.TestNG.runSuitesLocally(TestNG.java:1226)org.testng.TestNG.runSuites(TestNG.java:1144)org.testng.TestNG.run(TestNG.java:1115)org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
+]]>
+            </failure>
+    </testcase>
+
+
+</testsuite>
