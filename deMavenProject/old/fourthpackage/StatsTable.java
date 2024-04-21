@@ -9,9 +9,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 
-public class MyConnectionsResultTable implements Table{
+public class StatsTable implements Table{
 
-	@FindBy(xpath = "//*[@id=\"records\"]/table")	
+	@FindBy(xpath = "//*[@id=\"statsConnections\"]")	
 	private WebElement tabel;
 
 	private WebDriver driver;
@@ -23,9 +23,13 @@ public class MyConnectionsResultTable implements Table{
 		return rows.size();
 	}
 
-	public MyConnectionsResultTable(WebDriver driver) {
+	public StatsTable(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
+	}
+	
+	public StatsTable() {
+		PageFactory.initElements(DriverManager.getEventDriver(), this);
 	}
 
 	public void printTableData() {

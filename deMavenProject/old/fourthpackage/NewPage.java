@@ -254,6 +254,9 @@ public class NewPage
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
+	public NewPage() {
+		PageFactory.initElements(DriverManager.getEventDriver(), this);
+	}
 
 
 

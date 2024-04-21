@@ -56,17 +56,15 @@ public class TestCaseDia87 {
 		eventDriver.get("https://app-tst-training.azurewebsites.net/");
 
 
-		menu = new MenuPage(eventDriver);
-		loginpage = new LoginPage(eventDriver);
-
-		welcomepage = new WelcomePage(eventDriver);
-		adminpage = new AdminPage(eventDriver);
-		newpage = new NewPage(eventDriver);
-		connectionpage = new ConnectionPage(eventDriver);
-
-		statspage = new StatsPage(eventDriver);
-		statstable = new StatsTable(eventDriver);
-		myconnectionsresulttable = new MyConnectionsResultTable(eventDriver);
+		menu = new MenuPage();
+		loginpage = new LoginPage();
+		welcomepage = new WelcomePage();
+		adminpage = new AdminPage();
+		newpage = new NewPage();
+		connectionpage = new ConnectionPage();
+		statspage = new StatsPage();
+		statstable = new StatsTable();
+		myconnectionsresulttable = new MyConnectionsResultTable();
 
 
 

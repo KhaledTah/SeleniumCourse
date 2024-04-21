@@ -53,8 +53,9 @@ public class TestCaseDia65 {
 	 menu = new MenuPage(eventDriver);
 
 	// loginpage = new LoginPage();
-	loginpage = new LoginPage(eventDriver);
-	
+		//loginpage = new LoginPage(eventDriver);
+		loginpage = new LoginPage();
+		
 	 welcomepage = new WelcomePage(eventDriver);
 	 adminpage = new AdminPage(eventDriver);
 	

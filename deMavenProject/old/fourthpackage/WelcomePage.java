@@ -18,6 +18,10 @@ public class WelcomePage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
+	
+	public WelcomePage() {
+		PageFactory.initElements(DriverManager.getEventDriver(), this);
+	}
 
 	
 	public String getWelcomeMessage() {

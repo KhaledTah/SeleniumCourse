@@ -26,7 +26,11 @@ public class CustomListener implements WebDriverListener{
 	{
 
 	// System.out.println("(afterFindElement) Element found:" + locator.toString());
-		 System.out.println();
+		 System.out.println("");
+		//	System.out.println("- Found: " + locator.toString());
+			// System.out.println("");
+
+
 	}
 	
 	
@@ -36,7 +40,6 @@ public class CustomListener implements WebDriverListener{
 	{
 
 	//	System.out.println("(beforeFindElement) Element found:" + locator.toString());
-		 System.out.println();
 
 	}
 	
@@ -44,15 +47,16 @@ public class CustomListener implements WebDriverListener{
 	
 public void beforeClick(WebElement element) {
 	// System.out.println("(beforeClick) Element found:" + element.toString());
-	 System.out.println();
 
 
 }
 
 public void afterClick(WebElement element) {
 	//System.out.println("(afterClick) Element found:" + element.toString());
-	 System.out.println();
 
+	 System.out.println("");
+//	System.out.println(" - Clicked on : " + element.getTagName().toString());
+	// System.out.println("");
 
 	
 }

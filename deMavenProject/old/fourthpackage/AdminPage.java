@@ -55,6 +55,11 @@ public class AdminPage {
 		PageFactory.initElements(driver, this);
 	}
 	
+	public AdminPage() {
+	
+		PageFactory.initElements(DriverManager.getEventDriver(), this);
+	}
+	
 	public String getErrorMessage() {
 		return txtError.getText();
 	}

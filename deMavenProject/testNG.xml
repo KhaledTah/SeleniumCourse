@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Practice Suite">
+<suite name="Test Suite">
 
 
 <!--   
@@ -30,7 +30,7 @@
       </classes>
   </test> 
      
-  -->
+ 
    
   <test name="Test 5">
       <parameter name="username" value="admin"/>
@@ -40,7 +40,7 @@
       <classes>
       <class name="secondpackage.TestCaseGoogleSearch"/>
       </classes>
-  </test> <!-- Test -->  
+  </test>  
   
     <test name="Test 6">
       <parameter name="username" value="admin"/>
@@ -50,9 +50,97 @@
       <classes>
       <class name="secondpackage.TestCaseGoogleSearch"/>
       </classes>
-  </test> <!-- Test -->  
+  </test>  
+
+
+ 
+ 
+<listeners>
+	<listener class-name="fourthpackage.TestListener"></listener>
+</listeners> 
 
 
 
+     
+     <test name="Test 1">
+    <classes>
+        <class name="defaultpackage.TestCase11_1">
+            <methods>
+                <include name="     loginWithCorrectUsernameAndPassword"/>
+<exclude name="loginWithUsernameAndPassword"></exclude>
+            </methods>
+            <parameter name="username" value="admin"/>
+            <parameter name="password" value="superduper"/>
+            <parameter name="isloggedIn" value="True"/>
+        </class>
+    </classes>
+</test>
+     
+     
+<test name="Test 2">
+    <classes>
+        <class name="defaultpackage.TestCase11_1">
+            <methods>
+                <include name="loginWithUsernameAndPassword"/>
+            </methods>
+  
+        </class>
+    </classes>
+</test>
+     
+   
+   
+   
+     <test name="Test 3">
 
+      <classes>
+      <class name="fourthpackage.TestCaseGoogleSearch1"/>
+      </classes>
+  </test>  
+ -->
+
+ 
+<listeners>
+	<listener class-name="fourthpackage.TestListener"></listener>
+</listeners> 
+
+
+
+     
+     <test name="Test 1">
+    <classes>
+        <class name="testcases.TestCase11_1">
+            <methods>
+                <include name="     loginWithCorrectUsernameAndPassword"/>
+<exclude name="loginWithUsernameAndPassword"></exclude>
+            </methods>
+            <parameter name="username" value="admin"/>
+            <parameter name="password" value="superduper"/>
+            <parameter name="isloggedIn" value="True"/>
+        </class>
+    </classes>
+</test>
+     
+     
+<test name="Test 2">
+    <classes>
+        <class name="testcases.TestCase11_1">
+            <methods>
+                <include name="loginWithUsernameAndPassword"/>
+            </methods>
+  
+        </class>
+    </classes>
+</test>
+     
+   
+   
+   
+     <test name="Test 3">
+
+      <classes>
+      <class name="testcases.TestCaseGoogleSearch1"/>
+      </classes>
+  </test>  
+  
 </suite> <!-- Suite -->

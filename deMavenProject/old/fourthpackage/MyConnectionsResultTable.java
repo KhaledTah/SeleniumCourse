@@ -9,10 +9,19 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 
-public class StatsTable implements Table{
+public class MyConnectionsResultTable implements Table{
 
-	@FindBy(xpath = "//*[@id=\"statsConnections\"]")	
+	@FindBy(xpath = "//*[@id=\"records\"]/table")	
 	private WebElement tabel;
+
+	public WebElement getTabel() {
+		return tabel;
+	}
+
+	public void setTabel(WebElement tabel) {
+		this.tabel = tabel;
+	}
+
 
 	private WebDriver driver;
 	
@@ -23,11 +32,16 @@ public class StatsTable implements Table{
 		return rows.size();
 	}
 
-	public StatsTable(WebDriver driver) {
+	public MyConnectionsResultTable(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 
+	public MyConnectionsResultTable() {
+		PageFactory.initElements(DriverManager.getEventDriver(), this);
+
+	}
+	
 	public void printTableData() {
 		List <WebElement> rows = tabel.findElements(By.tagName("tr"));
 		for (WebElement row : rows) {

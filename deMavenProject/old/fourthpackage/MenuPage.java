@@ -79,6 +79,9 @@ public MenuPage(WebDriver driver) {
 	PageFactory.initElements(driver, this);
 }
 
+public MenuPage() {
+	PageFactory.initElements(DriverManager.getEventDriver(), this);
+}
 
 public MenuPage OpenHomePage1() {
 	

@@ -27,9 +27,16 @@ public class LoginPage {
 
 	private WebDriver driver;
 	
+	/*
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
+	}
+	*/
+	
+	
+	public LoginPage() {
+		PageFactory.initElements(DriverManager.getEventDriver(), this);
 	}
 	
 	public void loginWith(String username, String password) {

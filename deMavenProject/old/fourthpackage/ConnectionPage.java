@@ -31,9 +31,21 @@ public class ConnectionPage
 	private WebElement divMyConnections;
 
 
+	public WebElement getDivMyConnections() {
+		return divMyConnections;
+	}
+
+	public void setDivMyConnections(WebElement divMyConnections) {
+		this.divMyConnections = divMyConnections;
+	}
+
 	public ConnectionPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
+	}
+	public ConnectionPage( ) {
+		PageFactory.initElements(DriverManager.getEventDriver(), this);
+
 	}
 
 

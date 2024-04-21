@@ -29,9 +29,10 @@ import org.openqa.selenium.support.events.EventFiringDecorator;
 import org.openqa.selenium.support.events.WebDriverListener;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.asserts.SoftAssert;
 
 
-public class TestCaseDia82 {
+public class TestCaseDia98 {
 
 	public static MenuPage menu ;
 	public static LoginPage loginpage;
@@ -39,11 +40,15 @@ public class TestCaseDia82 {
 	public static AdminPage adminpage ;
 	public static StatsPage statspage ;
 	public static StatsTable statstable ;
+	public static MyConnectionsResultTable myconnectionsresulttable;
 
 	public static WebDriverListener listener;
 	public static WebDriver eventDriver;
 	public static WebDriver normalDriver;
 	public static NewPage newpage;
+	public static ConnectionPage connectionpage;
+
+
 
 	@BeforeAll
 	public static void config() {
@@ -55,15 +60,15 @@ public class TestCaseDia82 {
 		eventDriver.get("https://app-tst-training.azurewebsites.net/");
 
 
-		menu = new MenuPage(eventDriver);
-		loginpage = new LoginPage(eventDriver);
-
-		welcomepage = new WelcomePage(eventDriver);
-		adminpage = new AdminPage(eventDriver);
-		newpage = new NewPage(eventDriver);
-		statspage = new StatsPage(eventDriver);
-		statstable = new StatsTable(eventDriver);
-
+		menu = new MenuPage();
+		loginpage = new LoginPage();
+		welcomepage = new WelcomePage();
+		adminpage = new AdminPage();
+		newpage = new NewPage();
+		connectionpage = new ConnectionPage();
+		statspage = new StatsPage();
+		statstable = new StatsTable();
+		myconnectionsresulttable = new MyConnectionsResultTable();
 
 
 
@@ -83,45 +88,42 @@ public class TestCaseDia82 {
 	}
 
 
+
 	@Test
 	public void verifyTableData() {
 		loginpage.loginWith1("admin", "superduper");
 		Assert.assertTrue(welcomepage.getWelcomeMessage().contains("Welcome"));
 		System.out.println("1: " + welcomepage.getWelcomeMessage());
+
 		Connection c = new Connection("khaled", "Tahriou", "M", "tahrdfdf@hotmail.com", "1111/11.67.89", "02", "AS", "Senior");
 		newpage.createNewConnectionWith1(c.getFirstName(), c.getLastName(), c.getGender(), c.getEmail(), c.getTelephone(), c.getCompany(), c.getSsu(), c.getSeniority());
-		menu.OpenStatsPage1();
-		System.out.println("Row count: " + statstable.getRowCount());
-		statstable.printTableData();
-		System.out.println("Value cell with row 1 & col 1 : " + statstable.getText(1, 1).toString());
-		System.out.println("Value cell with row 1 & col 2 : " + statstable.getText(1, 2).toString());
-		System.out.println("Value cell with row 1 & col 3 : " + statstable.getText(1, 3).toString());
-		System.out.println("Value cell with row 1 & col 1 : " + statstable.getText(2, 1).toString());
-		System.out.println("Value cell with row 2 & col 1 : " + statstable.getText(2, 2).toString());
-		System.out.println("Value cell with row 3 & col 1 : " + statstable.getText(2, 3).toString());
 
-		if(statstable.getText(1, 1).equals("Total connections") && statstable.getText(1, 3).toString().equals("1")) {
-			System.out.println("The data in the table is correct");		
+
+
+		menu.OpenConnectionPage1();
+		connectionpage.searchConnectionsByFirstName(c.getFirstName());
+
+		ChildAvailable customCondition = new ChildAvailable(connectionpage.getDivMyConnections(), By.id("records"));
+		WebDriverWait wait = new WebDriverWait(eventDriver, Duration.ofMillis(500));
+		wait.until(customCondition);
+		Boolean isChildAvailable = customCondition.apply(eventDriver);
+		assert isChildAvailable : "The Child is not available!";
+		System.out.println("The Child is available!");
+
+
+
+		System.out.println("Value cell with row 2 & col 1 : " + myconnectionsresulttable.getText(2, 1).toString());
+
+		if(myconnectionsresulttable.getText(2, 1).contains(c.getFirstName())) {
+			System.out.println("The connections page contains " + c.getFirstName() + " as a record");		
 		} else 
 		{
-			System.out.println("The data in the table is not correct");
+			System.out.println("The connections page doesn't contain " + c.getFirstName() + " as a record");
 		}
 
-
-		newpage.createNewConnectionWith1("Samira", c.getLastName(), "F", c.getEmail(), c.getTelephone(), c.getCompany(), c.getSsu(), c.getSeniority());
-		menu.OpenStatsPage1();
-		statstable.printTableData();
-
-		if(statstable.getText(1, 1).equals("Total connections") && statstable.getText(1, 3).toString().equals("2")) {
-			System.out.println("The data in the table is correct");		
-		} else 
-		{
-			System.out.println("The data in the table is not correct");
-		}
+		assert myconnectionsresulttable.getText(2, 1).contains(c.getFirstName()) : "The connections page doesn't contain " + c.getFirstName() + " as a record";
 
 	}
-	
-
 
 
 

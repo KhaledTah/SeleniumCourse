@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.time.Duration;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.AfterAll;
@@ -27,9 +28,10 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.events.EventFiringDecorator;
 import org.openqa.selenium.support.events.WebDriverListener;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-public class TestCaseDia98 {
+public class TestCaseDia82 {
 
 	public static MenuPage menu ;
 	public static LoginPage loginpage;
@@ -37,14 +39,11 @@ public class TestCaseDia98 {
 	public static AdminPage adminpage ;
 	public static StatsPage statspage ;
 	public static StatsTable statstable ;
-	public static MyConnectionsResultTable myconnectionsresulttable;
 
 	public static WebDriverListener listener;
 	public static WebDriver eventDriver;
 	public static WebDriver normalDriver;
 	public static NewPage newpage;
-	public static ConnectionPage connectionpage;
-
 
 	@BeforeAll
 	public static void config() {
@@ -56,17 +55,14 @@ public class TestCaseDia98 {
 		eventDriver.get("https://app-tst-training.azurewebsites.net/");
 
 
-		menu = new MenuPage(eventDriver);
-		loginpage = new LoginPage(eventDriver);
+		menu = new MenuPage();
+		loginpage = new LoginPage();
+		welcomepage = new WelcomePage();
+		adminpage = new AdminPage();
+		newpage = new NewPage();
+		statspage = new StatsPage();
+		statstable = new StatsTable();
 
-		welcomepage = new WelcomePage(eventDriver);
-		adminpage = new AdminPage(eventDriver);
-		newpage = new NewPage(eventDriver);
-		connectionpage = new ConnectionPage(eventDriver);
-
-		statspage = new StatsPage(eventDriver);
-		statstable = new StatsTable(eventDriver);
-		myconnectionsresulttable = new MyConnectionsResultTable(eventDriver);
 
 
 
@@ -86,7 +82,6 @@ public class TestCaseDia98 {
 	}
 
 
-
 	@Test
 	public void verifyTableData() {
 		loginpage.loginWith1("admin", "superduper");
@@ -94,23 +89,38 @@ public class TestCaseDia98 {
 		System.out.println("1: " + welcomepage.getWelcomeMessage());
 		Connection c = new Connection("khaled", "Tahriou", "M", "tahrdfdf@hotmail.com", "1111/11.67.89", "02", "AS", "Senior");
 		newpage.createNewConnectionWith1(c.getFirstName(), c.getLastName(), c.getGender(), c.getEmail(), c.getTelephone(), c.getCompany(), c.getSsu(), c.getSeniority());
-		
+		menu.OpenStatsPage1();
+		System.out.println("Row count: " + statstable.getRowCount());
+		statstable.printTableData();
+		System.out.println("Value cell with row 1 & col 1 : " + statstable.getText(1, 1).toString());
+		System.out.println("Value cell with row 1 & col 2 : " + statstable.getText(1, 2).toString());
+		System.out.println("Value cell with row 1 & col 3 : " + statstable.getText(1, 3).toString());
+		System.out.println("Value cell with row 1 & col 1 : " + statstable.getText(2, 1).toString());
+		System.out.println("Value cell with row 2 & col 1 : " + statstable.getText(2, 2).toString());
+		System.out.println("Value cell with row 3 & col 1 : " + statstable.getText(2, 3).toString());
 
-		menu.OpenConnectionPage1();
-
-		connectionpage.searchConnectionsByFirstName(c.getFirstName());
-		
-
-		System.out.println("Value cell with row 2 & col 1 : " + myconnectionsresulttable.getText(2, 1).toString());
-		
-		if(myconnectionsresulttable.getText(2, 1).contains(c.getFirstName())) {
-			System.out.println("The connections page contains " + c.getFirstName() + " as a record");		
+		if(statstable.getText(1, 1).equals("Total connections") && statstable.getText(1, 3).toString().equals("1")) {
+			System.out.println("The data in the table is correct");		
 		} else 
 		{
-			System.out.println("The connections page doesn't contain" + c.getFirstName() + " as a record");
+			System.out.println("The data in the table is not correct");
 		}
-		
+
+
+		newpage.createNewConnectionWith1("Samira", c.getLastName(), "F", c.getEmail(), c.getTelephone(), c.getCompany(), c.getSsu(), c.getSeniority());
+		menu.OpenStatsPage1();
+		statstable.printTableData();
+
+		if(statstable.getText(1, 1).equals("Total connections") && statstable.getText(1, 3).toString().equals("2")) {
+			System.out.println("The data in the table is correct");		
+		} else 
+		{
+			System.out.println("The data in the table is not correct");
+		}
+
 	}
+	
+
 
 
 

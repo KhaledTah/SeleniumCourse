@@ -9,8 +9,6 @@ import org.openqa.selenium.support.ui.Select;
 public class StatsPage 
 
 {
-
-// test github push
 	
 	private WebDriver driver;
 
@@ -20,6 +18,9 @@ public class StatsPage
 		PageFactory.initElements(driver, this);
 	}
 
+	public StatsPage() {
+		PageFactory.initElements(DriverManager.getEventDriver(), this);
 
+	}
 
 }
