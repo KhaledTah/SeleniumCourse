@@ -54,6 +54,8 @@ public class TestCaseDia98 {
 	public static AdminPage adminpage ;
 	public static StatsPage statspage ;
 	public static StatsTable statstable ;
+	
+	// Nog aan te passen o.b.v. feedback
 	public static MyConnectionsResultTable myconnectionsresulttable;
 
 	public static WebDriverListener listener;
@@ -82,6 +84,8 @@ public class TestCaseDia98 {
 		connectionpage = new ConnectionPage();
 		statspage = new StatsPage();
 		statstable = new StatsTable();
+		
+		// Nog aan te passen o.b.v. feedback
 		myconnectionsresulttable = new MyConnectionsResultTable();
 
 
@@ -125,9 +129,10 @@ public class TestCaseDia98 {
 		System.out.println("The Child is available!");
 
 
-
+		// Nog aan te passen o.b.v. feedback
 		System.out.println("Value cell with row 2 & col 1 : " + myconnectionsresulttable.getText(2, 1).toString());
 
+		
 		if(myconnectionsresulttable.getText(2, 1).contains(c.getFirstName())) {
 			System.out.println("The connections page contains " + c.getFirstName() + " as a record");		
 		} else 

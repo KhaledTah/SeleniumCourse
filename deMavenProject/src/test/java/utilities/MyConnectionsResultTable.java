@@ -13,6 +13,7 @@ import drivers.DriverManager;
 
 public class MyConnectionsResultTable implements Table{
 
+	// Nog aan te passen o.b.v. feedback
 	@FindBy(xpath = "//*[@id=\"records\"]/table")	
 	private WebElement tabel;
 
@@ -44,6 +45,10 @@ public class MyConnectionsResultTable implements Table{
 
 	}
 
+	public MyConnectionsResultTable(WebElement theTable){
+		 this.tabel = theTable;
+		}
+	
 	public void printTableData() {
 		List <WebElement> rows = tabel.findElements(By.tagName("tr"));
 		for (WebElement row : rows) {

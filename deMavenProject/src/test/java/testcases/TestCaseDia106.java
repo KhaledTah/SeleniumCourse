@@ -75,6 +75,8 @@ public class TestCaseDia106 {
 		connectionpage = new ConnectionPage();
 		statspage = new StatsPage();
 		statstable = new StatsTable();
+		
+		// Nog aan te passen o.b.v. feedback
 		myconnectionsresulttable = new MyConnectionsResultTable();
 
 

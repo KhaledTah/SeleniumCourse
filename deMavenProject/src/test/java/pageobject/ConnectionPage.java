@@ -33,6 +33,8 @@ public class ConnectionPage
 	@FindBy(how = How.ID, using = "myrecords")			
 	private WebElement divMyConnections;
 
+	@FindBy(xpath = "//*[@id=\"records\"]/table")	
+	private WebElement tabel;
 
 	public WebElement getDivMyConnections() {
 		return divMyConnections;

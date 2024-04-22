@@ -50,6 +50,8 @@ public class TestCaseDia87 {
 	public static AdminPage adminpage ;
 	public static StatsPage statspage ;
 	public static StatsTable statstable ;
+	
+	// Nog aan te passen o.b.v. feedback
 	public static MyConnectionsResultTable myconnectionsresulttable;
 
 	public static WebDriverListener listener;
@@ -77,6 +79,8 @@ public class TestCaseDia87 {
 		connectionpage = new ConnectionPage();
 		statspage = new StatsPage();
 		statstable = new StatsTable();
+		
+		// Nog aan te passen o.b.v. feedback
 		myconnectionsresulttable = new MyConnectionsResultTable();
 
 
@@ -149,6 +153,7 @@ public class TestCaseDia87 {
 		assert statstable.getText(3, 3).equals("3") : "The data in the table is not correct";
 		connectionpage.searchConnectionsByFirstName("Peter");
 
+		// Nog aan te passen o.b.v. feedback
 		System.out.println("Value cell with row 2 & col 1 : " + myconnectionsresulttable.getText(2, 1).toString());
 
 		if(myconnectionsresulttable.getText(2, 1).contains("Peter Parker")) {
