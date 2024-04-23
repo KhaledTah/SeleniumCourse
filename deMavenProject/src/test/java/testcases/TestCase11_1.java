@@ -1,4 +1,3 @@
-
 package testcases;
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
@@ -31,12 +30,12 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource; */
 import org.testng.annotations.*;
 
-import defaultpackage.AdminPage;
-import defaultpackage.CustomListener;
-import defaultpackage.DriverManager;
-import defaultpackage.LoginPage;
-import defaultpackage.MenuPage;
-import defaultpackage.WelcomePage;
+import pageobject.AdminPage;
+import listeners.CustomListener;
+import drivers.DriverManager;
+import pageobject.LoginPage;
+import pageobject.MenuPage;
+import pageobject.WelcomePage;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
@@ -45,15 +44,16 @@ import com.aventstack.extentreports.reporter.configuration.ExtentSparkReporterCo
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
 
-public class TestCase11_1 extends fourthpackage.BaseTest{
+public class TestCase11_1 extends BaseTest{
 
 	private ExtentReports extent;
 	private ExtentTest extentTest;
 
 	@BeforeClass
 	public void setUp() {
-		// I'm not yet done with implementing the ExtentReports
-		// got NullPointerException: cannot invoke .. because this.extent is null
+		
+		// The workingextentReport is implemented in TestCaseDia114
+		
         String path = System.getProperty("user.dir") + "\\reports\\index.html";
 
 		ExtentSparkReporter reporter = new ExtentSparkReporter(path);
@@ -62,7 +62,7 @@ public class TestCase11_1 extends fourthpackage.BaseTest{
 
 		extent = new ExtentReports();
         extent.attachReporter(reporter);
-        extent.setSystemInfo("Tester", "Harsh Singh");
+        extent.setSystemInfo("Tester", "Khaled");
 
         reporter.config(
 				ExtentSparkReporterConfig.builder()
@@ -188,6 +188,3 @@ public class TestCase11_1 extends fourthpackage.BaseTest{
 	}
 
 }
-
-
-

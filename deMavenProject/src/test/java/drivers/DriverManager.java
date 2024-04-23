@@ -7,7 +7,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.events.EventFiringDecorator;
 import org.openqa.selenium.support.events.WebDriverListener;
 
-import defaultpackage.CustomListener;
+import listeners.CustomListener;
 //import defaultpackage.DriverManager;
 
 public class DriverManager {

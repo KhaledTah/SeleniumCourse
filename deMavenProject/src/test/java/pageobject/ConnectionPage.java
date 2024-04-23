@@ -3,7 +3,6 @@ package pageobject;
 import java.time.Duration;
 
 import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,7 +14,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import drivers.DriverManager;
-import utilities.Connection;
+import utils.Connection;
+import utils.MyConnectionsResultTable;
 
 
 public class ConnectionPage 
@@ -35,6 +35,24 @@ public class ConnectionPage
 
 	@FindBy(xpath = "//*[@id=\"records\"]/table")	
 	private WebElement tabel;
+
+	private MyConnectionsResultTable resultTable;
+
+	public MyConnectionsResultTable getResultTable() {
+		return resultTable;
+	}
+
+	public void setResultTable(MyConnectionsResultTable resultTable) {
+		this.resultTable = resultTable;
+	}
+
+	public WebElement getTabel() {
+		return tabel;
+	}
+
+	public void setTabel(WebElement tabel) {
+		this.tabel = tabel;
+	}
 
 	public WebElement getDivMyConnections() {
 		return divMyConnections;
@@ -88,6 +106,7 @@ public class ConnectionPage
 		txtSearchTerm.clear();
 		txtSearchTerm.sendKeys(c.getFirstName());
 
+		this.resultTable = new MyConnectionsResultTable(tabel); 
 
 
 		return this;
@@ -107,6 +126,7 @@ public class ConnectionPage
 		txtSearchTerm.clear();
 		txtSearchTerm.sendKeys(firstname);
 		WebDriverWait wait = new WebDriverWait(DriverManager.getDriver1(),Duration.ofSeconds(30));
+		this.resultTable = new MyConnectionsResultTable(tabel); 
 
 
 

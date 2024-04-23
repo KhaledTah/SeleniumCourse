@@ -39,7 +39,7 @@ import pageobject.NewPage;
 import pageobject.StatsPage;
 import pageobject.StatsTable;
 import pageobject.WelcomePage;
-import utilities.Connection;
+import utils.Connection;
 
 
 public class TestCaseDia82 {

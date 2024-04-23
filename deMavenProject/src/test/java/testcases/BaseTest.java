@@ -18,12 +18,12 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
-import defaultpackage.AdminPage;
-import defaultpackage.CustomListener;
-import defaultpackage.DriverManager;
-import defaultpackage.LoginPage;
-import defaultpackage.MenuPage;
-import defaultpackage.WelcomePage;
+import pageobject.AdminPage;
+import listeners.CustomListener;
+import drivers.DriverManager;
+import pageobject.LoginPage;
+import pageobject.MenuPage;
+import pageobject.WelcomePage;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;

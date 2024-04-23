@@ -38,8 +38,8 @@ import pageobject.NewPage;
 import pageobject.StatsPage;
 import pageobject.StatsTable;
 import pageobject.WelcomePage;
-import utilities.Connection;
-import utilities.MyConnectionsResultTable;
+import utils.Connection;
+import utils.MyConnectionsResultTable;
 
 
 public class TestCaseDia87 {

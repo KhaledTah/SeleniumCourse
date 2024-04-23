@@ -16,11 +16,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 
-import defaultpackage.DriverManager;
+import drivers.DriverManager;
 
 
 
-public class TestCaseGoogleSearch1 extends fourthpackage.BaseTest {
+public class TestCaseGoogleSearch1 extends BaseTest {
 
 	public class GoogleSearchPage{
 		private WebDriver driver;

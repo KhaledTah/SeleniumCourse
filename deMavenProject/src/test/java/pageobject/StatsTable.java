@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import drivers.DriverManager;
-import utilities.Table;
+import utils.Table;
 
 
 public class StatsTable implements Table{

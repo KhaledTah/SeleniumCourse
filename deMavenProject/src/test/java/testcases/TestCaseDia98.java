@@ -41,9 +41,9 @@ import pageobject.NewPage;
 import pageobject.StatsPage;
 import pageobject.StatsTable;
 import pageobject.WelcomePage;
-import utilities.ChildAvailable;
-import utilities.Connection;
-import utilities.MyConnectionsResultTable;
+import utils.ChildAvailable;
+import utils.Connection;
+import utils.MyConnectionsResultTable;
 
 
 public class TestCaseDia98 {
@@ -54,9 +54,9 @@ public class TestCaseDia98 {
 	public static AdminPage adminpage ;
 	public static StatsPage statspage ;
 	public static StatsTable statstable ;
-	
+
 	// Nog aan te passen o.b.v. feedback
-	public static MyConnectionsResultTable myconnectionsresulttable;
+	//	public static MyConnectionsResultTable myconnectionsresulttable;
 
 	public static WebDriverListener listener;
 	public static WebDriver eventDriver;
@@ -64,7 +64,8 @@ public class TestCaseDia98 {
 	public static NewPage newpage;
 	public static ConnectionPage connectionpage;
 
-
+	@FindBy(xpath = "//*[@id=\"records\"]/table")	
+	public static WebElement tabel;
 
 	@BeforeAll
 	public static void config() {
@@ -84,9 +85,8 @@ public class TestCaseDia98 {
 		connectionpage = new ConnectionPage();
 		statspage = new StatsPage();
 		statstable = new StatsTable();
-		
-		// Nog aan te passen o.b.v. feedback
-		myconnectionsresulttable = new MyConnectionsResultTable();
+
+
 
 
 
@@ -130,17 +130,17 @@ public class TestCaseDia98 {
 
 
 		// Nog aan te passen o.b.v. feedback
-		System.out.println("Value cell with row 2 & col 1 : " + myconnectionsresulttable.getText(2, 1).toString());
+		System.out.println("Value cell with row 2 & col 1 : " + connectionpage.getResultTable().getText(2, 1).toString());
 
-		
-		if(myconnectionsresulttable.getText(2, 1).contains(c.getFirstName())) {
+
+		if(connectionpage.getResultTable().getText(2, 1).contains(c.getFirstName())) {
 			System.out.println("The connections page contains " + c.getFirstName() + " as a record");		
 		} else 
 		{
 			System.out.println("The connections page doesn't contain " + c.getFirstName() + " as a record");
 		}
 
-		assert myconnectionsresulttable.getText(2, 1).contains(c.getFirstName()) : "The connections page doesn't contain " + c.getFirstName() + " as a record";
+		assert connectionpage.getResultTable().getText(2, 1).contains(c.getFirstName()) : "The connections page doesn't contain " + c.getFirstName() + " as a record";
 
 	}
 

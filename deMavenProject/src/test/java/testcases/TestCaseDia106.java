@@ -35,7 +35,7 @@ import ru.yandex.qatools.ashot.AShot;
 import ru.yandex.qatools.ashot.Screenshot;
 import ru.yandex.qatools.ashot.comparison.ImageDiff;
 import ru.yandex.qatools.ashot.comparison.ImageDiffer;
-import utilities.MyConnectionsResultTable;
+import utils.MyConnectionsResultTable;
 
 public class TestCaseDia106 {
 
@@ -241,6 +241,3 @@ public class TestCaseDia106 {
 
 	}
 }
-
-
-

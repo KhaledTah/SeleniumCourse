@@ -35,7 +35,7 @@ import pageobject.LoginPage;
 import pageobject.MenuPage;
 import pageobject.NewPage;
 import pageobject.WelcomePage;
-import utilities.Connection;
+import utils.Connection;
 
 
 public class TestCaseDia72 {

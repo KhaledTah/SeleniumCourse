@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import drivers.DriverManager;
-import utilities.Connection;
+import utils.Connection;
 
 
 public class NewPage 
