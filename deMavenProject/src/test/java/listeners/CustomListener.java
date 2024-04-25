@@ -23,6 +23,13 @@ import drivers.DriverManager;
 public class CustomListener implements WebDriverListener{
 
 
+	public void beforeFindElement(WebDriver driver,
+			By locator)
+	{
+
+		//	System.out.println("(beforeFindElement) Element found:" + locator.toString());
+
+	}
 
 	public void afterFindElement(WebDriver driver, By locator, WebElement result)
 	{
@@ -31,16 +38,6 @@ public class CustomListener implements WebDriverListener{
 		//	System.out.println("- Found: " + locator.toString());
 		// System.out.println("");
 
-
-	}
-
-
-
-	public void beforeFindElement(WebDriver driver,
-			By locator)
-	{
-
-		//	System.out.println("(beforeFindElement) Element found:" + locator.toString());
 
 	}
 
@@ -76,7 +73,6 @@ public class CustomListener implements WebDriverListener{
 				System.out.println("Error: noSuchElementException --> See screenshot");
 
 			} catch (IOException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		}

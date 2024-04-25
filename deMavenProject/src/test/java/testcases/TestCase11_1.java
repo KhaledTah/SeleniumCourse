@@ -51,20 +51,20 @@ public class TestCase11_1 extends BaseTest{
 
 	@BeforeClass
 	public void setUp() {
-		
-		// The workingextentReport is implemented in TestCaseDia114
-		
-        String path = System.getProperty("user.dir") + "\\reports\\index.html";
+
+		// The final version of the ExtentReport is implemented in TestCaseDia114
+
+		String path = System.getProperty("user.dir") + "\\reports\\index.html";
 
 		ExtentSparkReporter reporter = new ExtentSparkReporter(path);
-        reporter.config().setReportName("Web Automation Results");
-        reporter.config().setDocumentTitle("Test Results");
+		reporter.config().setReportName("Web Automation Results");
+		reporter.config().setDocumentTitle("Test Results");
 
 		extent = new ExtentReports();
-        extent.attachReporter(reporter);
-        extent.setSystemInfo("Tester", "Khaled");
+		extent.attachReporter(reporter);
+		extent.setSystemInfo("Tester", "Khaled");
 
-        reporter.config(
+		reporter.config(
 				ExtentSparkReporterConfig.builder()
 				.theme(Theme.DARK)
 				.documentTitle("MyReport")
@@ -75,14 +75,10 @@ public class TestCase11_1 extends BaseTest{
 
 	@Test(testName = "Simple test 1")
 	public  void SimpleTest1() {
-
-
 		extent.createTest("Simple Test 1");
 		extentTest.log(Status.INFO, "Verifying if 1 equals 1");
 		Assert.assertTrue(1 == 1);
 		extentTest.log(Status.PASS, "Assertion passed");
-
-
 	}
 
 	@Test (testName = "Simple test 2")
@@ -120,15 +116,12 @@ public class TestCase11_1 extends BaseTest{
 
 		if(loggedin) {
 			AssertJUnit.assertTrue(welcomepage.isWelcomeMessageShown());
-
 		}
 		else {
 			AssertJUnit.assertFalse(welcomepage.isWelcomeMessageShown());
-
-
 		}
-		System.out.println("\n ");
 
+		System.out.println("\n ");
 		System.out.println("WelcomeMessage: " + welcomepage.getWelcomeMessage().toString());
 		System.out.println("\n");
 

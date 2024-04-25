@@ -14,13 +14,18 @@ public class Exercise02b {
 		WebDriver driver1 = new ChromeDriver();
 
 		driver1.get("https://www.google.com");
+
 		String titel1 = driver1.getTitle();
 		String url1 = driver1.getCurrentUrl();
 		System.out.println("The title is: " + titel1);
+
 		driver1.get("https://www.bing.com");
+
 		String titel2 = driver1.getTitle();
 		System.out.println("The title is: " + titel2);
+
 		driver1.navigate().back();
+
 		String titel3 = driver1.getTitle();
 
 		if(titel2.equals(titel3)) {

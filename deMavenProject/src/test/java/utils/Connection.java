@@ -3,13 +3,36 @@ package utils;
 public class Connection{
 
 	private String firstName;	
-	public String getFirstName() {
-		return firstName;
+	private String lastName;
+	private String sex;
+	private String email;			
+	private String telephone;
+	private String company;
+	private String ssu;
+	private String seniority;
+	private String addInfo;
+
+
+	public Connection(String firstName, String lastName, String sex, String email, String telephone, String company, String SSU, String seniority) {
+		this.firstName= firstName;
+		this.lastName =  lastName;
+		this.sex = sex; 
+		this.email = email;
+		this.telephone= telephone;
+		this.company= company;
+		this.ssu = SSU;
+		this.seniority=seniority;
 	}
 
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+
+
+	public String getFirstName() {
+		return firstName;
+	}
+
 
 	public String getLastName() {
 		return lastName;
@@ -75,23 +98,6 @@ public class Connection{
 		this.addInfo = addInfo;
 	}
 
-	private String lastName;
-	private String sex;
-	private String email;			
-	private String telephone;
-	private String company;
-	private String ssu;
-	private String seniority;
-	private String addInfo;
 
-	public Connection(String firstName, String lastName, String sex, String email, String telephone, String company, String SSU, String seniority) {
-		this.firstName= firstName;
-		this.lastName =  lastName;
-		this.sex = sex; 
-		this.email = email;
-		this.telephone= telephone;
-		this.company= company;
-		this.ssu = SSU;
-		this.seniority=seniority;
-	}
+
 }

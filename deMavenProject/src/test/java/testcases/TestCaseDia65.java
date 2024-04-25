@@ -50,16 +50,14 @@ public class TestCaseDia65 {
 	public static void config() {
 
 		System.out.println("Starting the test");
+
 		normalDriver = DriverManager.getDriver1();
 		listener =  new CustomListener();
 		eventDriver = new EventFiringDecorator<WebDriver>(listener).decorate(normalDriver);
 		eventDriver.get("https://app-tst-training.azurewebsites.net/");
 
-
 		menu = new MenuPage(eventDriver);
-
 		loginpage = new LoginPage();
-
 		welcomepage = new WelcomePage(eventDriver);
 		adminpage = new AdminPage(eventDriver);
 
@@ -97,7 +95,6 @@ public class TestCaseDia65 {
 		loginpage.loginWith1("admin", "false");
 		Assert.assertFalse(welcomepage.getWelcomeMessage().contains("Welcome"));
 		System.out.println("Test 2: " + welcomepage.getWelcomeMessage());
-
 	}
 
 

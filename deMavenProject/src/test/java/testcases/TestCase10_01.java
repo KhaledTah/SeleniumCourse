@@ -65,17 +65,13 @@ public class TestCase10_01 {
 
 		menu.logout();
 
-
 	}
 
 
 	@BeforeEach
 	public  void beforeTest() {
 
-
 		menu.logout();
-
-
 	}
 
 
@@ -104,7 +100,6 @@ public class TestCase10_01 {
 
 	}
 
-
 	@Test
 	public void loginWithNoUsernameAndPassword() {
 		loginpage.loginWith("", "");
@@ -112,7 +107,6 @@ public class TestCase10_01 {
 		System.out.println("4: " + welcomepage.getWelcomeMessage());
 
 	}
-
 
 	@AfterEach
 	public  void finishTest() {

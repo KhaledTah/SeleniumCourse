@@ -13,27 +13,10 @@ import drivers.DriverManager;
 
 public class MyConnectionsResultTable implements Table{
 
-	// Nog aan te passen o.b.v. feedback
 	@FindBy(xpath = "//*[@id=\"records\"]/table")	
 	private WebElement tabel;
 
-	public WebElement getTabel() {
-		return tabel;
-	}
-
-	public void setTabel(WebElement tabel) {
-		this.tabel = tabel;
-	}
-
-
 	private WebDriver driver;
-
-
-	@Override
-	public int getRowCount() {
-		List <WebElement> rows = this.tabel.findElements(By.tagName("tr"));
-		return rows.size();
-	}
 
 	public MyConnectionsResultTable(WebDriver driver) {
 		this.driver = driver;
@@ -46,9 +29,17 @@ public class MyConnectionsResultTable implements Table{
 	}
 
 	public MyConnectionsResultTable(WebElement theTable){
-		 this.tabel = theTable;
-		}
-	
+		this.tabel = theTable;
+	}
+
+	public WebElement getTabel() {
+		return tabel;
+	}
+
+	public void setTabel(WebElement tabel) {
+		this.tabel = tabel;
+	}
+
 	public void printTableData() {
 		List <WebElement> rows = tabel.findElements(By.tagName("tr"));
 		for (WebElement row : rows) {
@@ -60,6 +51,12 @@ public class MyConnectionsResultTable implements Table{
 		}
 	}
 
+
+	@Override
+	public int getRowCount() {
+		List <WebElement> rows = this.tabel.findElements(By.tagName("tr"));
+		return rows.size();
+	}
 
 	@Override
 	public String getText(int row, int col) {

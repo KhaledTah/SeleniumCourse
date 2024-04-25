@@ -48,24 +48,23 @@ import utils.MyConnectionsResultTable;
 
 public class TestCaseDia98 {
 
+
+	@FindBy(xpath = "//*[@id=\"records\"]/table")	
+	public static WebElement tabel;
+
+	public static WebDriverListener listener;
+	public static WebDriver eventDriver;
+	public static WebDriver normalDriver;
+
 	public static MenuPage menu ;
 	public static LoginPage loginpage;
 	public static WelcomePage welcomepage ;
 	public static AdminPage adminpage ;
 	public static StatsPage statspage ;
 	public static StatsTable statstable ;
-
-	// Nog aan te passen o.b.v. feedback
-	//	public static MyConnectionsResultTable myconnectionsresulttable;
-
-	public static WebDriverListener listener;
-	public static WebDriver eventDriver;
-	public static WebDriver normalDriver;
 	public static NewPage newpage;
 	public static ConnectionPage connectionpage;
-
-	@FindBy(xpath = "//*[@id=\"records\"]/table")	
-	public static WebElement tabel;
+	//	public static MyConnectionsResultTable myconnectionsresulttable;
 
 	@BeforeAll
 	public static void config() {
@@ -76,7 +75,6 @@ public class TestCaseDia98 {
 		eventDriver = new EventFiringDecorator<WebDriver>(listener).decorate(normalDriver);
 		eventDriver.get("https://app-tst-training.azurewebsites.net/");
 
-
 		menu = new MenuPage();
 		loginpage = new LoginPage();
 		welcomepage = new WelcomePage();
@@ -85,12 +83,6 @@ public class TestCaseDia98 {
 		connectionpage = new ConnectionPage();
 		statspage = new StatsPage();
 		statstable = new StatsTable();
-
-
-
-
-
-
 	}
 
 
@@ -116,20 +108,17 @@ public class TestCaseDia98 {
 		Connection c = new Connection("khaled", "Tahriou", "M", "tahrdfdf@hotmail.com", "1111/11.67.89", "02", "AS", "Senior");
 		newpage.createNewConnectionWith1(c.getFirstName(), c.getLastName(), c.getGender(), c.getEmail(), c.getTelephone(), c.getCompany(), c.getSsu(), c.getSeniority());
 
-
-
 		menu.OpenConnectionPage1();
 		connectionpage.searchConnectionsByFirstName(c.getFirstName());
 
 		ChildAvailable customCondition = new ChildAvailable(connectionpage.getDivMyConnections(), By.id("records"));
 		WebDriverWait wait = new WebDriverWait(eventDriver, Duration.ofMillis(500));
 		wait.until(customCondition);
+
 		Boolean isChildAvailable = customCondition.apply(eventDriver);
 		assert isChildAvailable : "The Child is not available!";
 		System.out.println("The Child is available!");
 
-
-		// Nog aan te passen o.b.v. feedback
 		System.out.println("Value cell with row 2 & col 1 : " + connectionpage.getResultTable().getText(2, 1).toString());
 
 

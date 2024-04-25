@@ -18,22 +18,16 @@ public class StatsTable implements Table{
 	private WebElement tabel;
 
 	private WebDriver driver;
-	
-
-	@Override
-	public int getRowCount() {
-		List <WebElement> rows = this.tabel.findElements(By.tagName("tr"));
-		return rows.size();
-	}
 
 	public StatsTable(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	
+
 	public StatsTable() {
 		PageFactory.initElements(DriverManager.getEventDriver(), this);
 	}
+
 
 	public void printTableData() {
 		List <WebElement> rows = tabel.findElements(By.tagName("tr"));
@@ -45,23 +39,29 @@ public class StatsTable implements Table{
 			System.out.println();
 		}
 	}
-	
+
+	@Override
+	public int getRowCount() {
+		List <WebElement> rows = this.tabel.findElements(By.tagName("tr"));
+		return rows.size();
+	}
+
 
 	@Override
 	public String getText(int row, int col) {
-try {
-	
-		List <WebElement> rows = tabel.findElements(By.tagName("tr"));
-		WebElement specificRow = rows.get(row-1);
-		List <WebElement> cells = specificRow.findElements(By.tagName("td"));
-		WebElement specificCell = cells.get(col-1);
+		try {
 
-	
-return specificCell.getText();
-	} catch(IndexOutOfBoundsException e){
-		System.out.print("");
-		return "";
-		
-	}
+			List <WebElement> rows = tabel.findElements(By.tagName("tr"));
+			WebElement specificRow = rows.get(row-1);
+			List <WebElement> cells = specificRow.findElements(By.tagName("td"));
+			WebElement specificCell = cells.get(col-1);
+
+
+			return specificCell.getText();
+		} catch(IndexOutOfBoundsException e){
+			System.out.print("");
+			return "";
+
+		}
 	}
 }

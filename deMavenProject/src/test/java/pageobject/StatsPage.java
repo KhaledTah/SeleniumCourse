@@ -11,7 +11,7 @@ import drivers.DriverManager;
 public class StatsPage 
 
 {
-	
+
 	private WebDriver driver;
 
 

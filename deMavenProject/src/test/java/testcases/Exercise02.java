@@ -20,11 +20,14 @@ public class Exercise02 {
 		WebDriver driver1 = new ChromeDriver();
 
 		driver1.get("https://www.google.com");
+
 		String titel1 = driver1.getTitle();
 		System.out.println("The title is: " + titel1);
+
 		driver1.get("https://www.bing.com");
 		String titel2 = driver1.getTitle();
 		System.out.println("The title is: " + titel2);
+
 		driver1.navigate().back();
 		String titel3 = driver1.getTitle();
 
@@ -35,7 +38,9 @@ public class Exercise02 {
 		}
 
 		driver1.navigate().refresh();
+
 		driver1.quit();
+
 		System.out.println("The test has ended");
 
 	}

@@ -45,17 +45,14 @@ public class TestCaseDia106 {
 	public static AdminPage adminpage ;
 	public static StatsPage statspage ;
 	public static StatsTable statstable ;
+	public static NewPage newpage;
+	public static HomePage homepage;
+	public static ConnectionPage connectionpage;
 	public static MyConnectionsResultTable myconnectionsresulttable;
 
 	public static WebDriverListener listener;
 	public static WebDriver eventDriver;
 	public static WebDriver normalDriver;
-	public static NewPage newpage;
-	public static HomePage homepage;
-
-	public static ConnectionPage connectionpage;
-
-
 
 	@BeforeAll
 	public static void config() {
@@ -66,7 +63,6 @@ public class TestCaseDia106 {
 		eventDriver = new EventFiringDecorator<WebDriver>(listener).decorate(normalDriver);
 		eventDriver.get("https://app-tst-training.azurewebsites.net/");
 
-
 		menu = new MenuPage();
 		loginpage = new LoginPage();
 		welcomepage = new WelcomePage();
@@ -75,29 +71,21 @@ public class TestCaseDia106 {
 		connectionpage = new ConnectionPage();
 		statspage = new StatsPage();
 		statstable = new StatsTable();
-		
-		// Nog aan te passen o.b.v. feedback
 		myconnectionsresulttable = new MyConnectionsResultTable();
-
-
-
-
 	}
 
 
 	@BeforeEach
 	public  void beforeTest() {
-		System.out.println("Preparing the drivers for the test..");
 
+		System.out.println("Preparing the drivers for the test..");
 		WebDriver normalDriver = DriverManager.getDriver1();
 		WebDriverListener listener =  new CustomListener();
 		WebDriver eventDriver = new EventFiringDecorator<WebDriver>(listener).decorate(normalDriver);
 		eventDriver.get("https://app-tst-training.azurewebsites.net/");
 		menu.logout();
 
-
 	}
-
 
 
 	@Test
@@ -204,7 +192,6 @@ public class TestCaseDia106 {
 
 		Assert.assertFalse("The image is displayed while it shouldn't be displayed", 	    homepage.getImage().isDisplayed());
 
-
 		homepage.clickBtnShowMe();
 
 		Assert.assertTrue("The image isn't displayed while it should be displayed", 	    homepage.getImage().isDisplayed());
@@ -216,12 +203,9 @@ public class TestCaseDia106 {
 	public  void testImageEnabled() {
 		System.out.println("Starting the test 'TestImageDisplayed'");
 
-
 		loginpage.loginWith1("admin", "superduper");
 
 		menu.OpenHomePage1();
-
-
 
 		homepage.clickBtnShowMe();
 

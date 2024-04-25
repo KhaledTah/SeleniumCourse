@@ -57,6 +57,115 @@ public class NewPage
 
 
 	private WebDriver driver;
+	
+	public NewPage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+	public NewPage() {
+		PageFactory.initElements(DriverManager.getEventDriver(), this);
+	}
+
+	
+	public void createNewConnectionWith(String firstName, String lastName, String sex, String email, String telephone, String company, String SSU, String seniority) {
+
+		menuConnection.click();
+
+		txtFirstName.clear();
+		txtFirstName.sendKeys(firstName);
+
+		txtLastName.clear();
+		txtLastName.sendKeys(lastName);	
+
+		Select cboOptions = new Select(lstSex);
+		cboOptions.selectByVisibleText(sex);
+
+		txtEmail.clear();
+		txtEmail.sendKeys(email);
+
+		txtTelephone.clear();
+		txtTelephone.click();
+		txtTelephone.sendKeys(telephone.toString());
+
+		txtCompany.clear();
+		txtCompany.sendKeys(company);
+
+		Select cboOptions2 = new Select(lstSSU);
+		cboOptions2.selectByVisibleText(SSU);
+
+		Select cboOptions3 = new Select(lstSeniority);
+		cboOptions3.selectByVisibleText(seniority);
+
+		btnAdd.click();
+
+	}
+
+
+	public NewPage createNewConnectionWith1(String firstName, String lastName, String sex, String email, String telephone, String company, String SSU, String seniority) {
+		menuConnection.click();
+
+		txtFirstName.clear();
+		txtFirstName.sendKeys(firstName);
+
+		txtLastName.clear();
+		txtLastName.sendKeys(lastName);	
+
+		Select cboOptions = new Select(lstSex);
+		cboOptions.selectByVisibleText(sex);
+
+		txtEmail.clear();
+		txtEmail.sendKeys(email);
+
+		txtTelephone.clear();
+		txtTelephone.click();
+		txtTelephone.sendKeys(telephone.toString());
+
+		txtCompany.clear();
+		txtCompany.sendKeys(company);
+
+		Select cboOptions2 = new Select(lstSSU);
+		cboOptions2.selectByVisibleText(SSU);
+
+		Select cboOptions3 = new Select(lstSeniority);
+		cboOptions3.selectByVisibleText(seniority);
+
+		btnAdd.click();
+
+		return this;
+	}
+
+	public NewPage createNewConnectionWithConnection(Connection c) {
+		menuConnection.click();
+
+		txtFirstName.clear();
+		txtFirstName.sendKeys(c.getFirstName());
+
+		txtLastName.clear();
+		txtLastName.sendKeys(c.getLastName());	
+
+		Select cboOptions = new Select(lstSex);
+		cboOptions.selectByVisibleText(c.getGender());
+
+		txtEmail.clear();
+		txtEmail.sendKeys(c.getEmail());
+
+		txtTelephone.clear();
+		txtTelephone.click();
+		txtTelephone.sendKeys(c.getTelephone().toString());
+
+		txtCompany.clear();
+		txtCompany.sendKeys(c.getCompany());
+
+		Select cboOptions2 = new Select(lstSSU);
+		cboOptions2.selectByVisibleText(c.getSsu());
+
+		Select cboOptions3 = new Select(lstSeniority);
+		cboOptions3.selectByVisibleText(c.getSeniority());
+
+		btnAdd.click();
+
+		return this;
+	}
 
 	public WebElement getTxtFirstName() {
 		return txtFirstName;
@@ -148,118 +257,6 @@ public class NewPage
 	}
 
 
-
-
-
-
-	public void createNewConnectionWith(String firstName, String lastName, String sex, String email, String telephone, String company, String SSU, String seniority) {
-
-		menuConnection.click();
-
-		txtFirstName.clear();
-		txtFirstName.sendKeys(firstName);
-
-		txtLastName.clear();
-		txtLastName.sendKeys(lastName);	
-
-		Select cboOptions = new Select(lstSex);
-		cboOptions.selectByVisibleText(sex);
-
-		txtEmail.clear();
-		txtEmail.sendKeys(email);
-
-		txtTelephone.clear();
-		txtTelephone.click();
-		txtTelephone.sendKeys(telephone.toString());
-
-		txtCompany.clear();
-		txtCompany.sendKeys(company);
-
-		Select cboOptions2 = new Select(lstSSU);
-		cboOptions2.selectByVisibleText(SSU);
-
-		Select cboOptions3 = new Select(lstSeniority);
-		cboOptions3.selectByVisibleText(seniority);
-
-		btnAdd.click();
-
-	}
-
-
-	public NewPage createNewConnectionWith1(String firstName, String lastName, String sex, String email, String telephone, String company, String SSU, String seniority) {
-		menuConnection.click();
-
-		txtFirstName.clear();
-		txtFirstName.sendKeys(firstName);
-
-		txtLastName.clear();
-		txtLastName.sendKeys(lastName);	
-
-		Select cboOptions = new Select(lstSex);
-		cboOptions.selectByVisibleText(sex);
-
-		txtEmail.clear();
-		txtEmail.sendKeys(email);
-
-		txtTelephone.clear();
-		txtTelephone.click();
-		txtTelephone.sendKeys(telephone.toString());
-
-		txtCompany.clear();
-		txtCompany.sendKeys(company);
-
-		Select cboOptions2 = new Select(lstSSU);
-		cboOptions2.selectByVisibleText(SSU);
-
-		Select cboOptions3 = new Select(lstSeniority);
-		cboOptions3.selectByVisibleText(seniority);
-
-		btnAdd.click();
-
-		return this;
-	}
-
-	public NewPage createNewConnectionWith2(Connection c) {
-		menuConnection.click();
-
-		txtFirstName.clear();
-		txtFirstName.sendKeys(c.getFirstName());
-
-		txtLastName.clear();
-		txtLastName.sendKeys(c.getLastName());	
-
-		Select cboOptions = new Select(lstSex);
-		cboOptions.selectByVisibleText(c.getGender());
-
-		txtEmail.clear();
-		txtEmail.sendKeys(c.getEmail());
-
-		txtTelephone.clear();
-		txtTelephone.click();
-		txtTelephone.sendKeys(c.getTelephone().toString());
-
-		txtCompany.clear();
-		txtCompany.sendKeys(c.getCompany());
-
-		Select cboOptions2 = new Select(lstSSU);
-		cboOptions2.selectByVisibleText(c.getSsu());
-
-		Select cboOptions3 = new Select(lstSeniority);
-		cboOptions3.selectByVisibleText(c.getSeniority());
-
-		btnAdd.click();
-
-		return this;
-	}
-
-
-	public NewPage(WebDriver driver) {
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
-	}
-	public NewPage() {
-		PageFactory.initElements(DriverManager.getEventDriver(), this);
-	}
 
 
 

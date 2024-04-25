@@ -31,21 +31,15 @@ public class TestCase07_01 {
 
 		eventDriver.get("https://app-tst-training.azurewebsites.net/");
 
-
 		MenuPage menu = new MenuPage();
 		LoginPage loginpage = new LoginPage();
 		WelcomePage welcomepage = new WelcomePage();
 		AdminPage adminpage = new AdminPage();
 
-
-
 		PageFactory.initElements(eventDriver, menu);
 		PageFactory.initElements(eventDriver, loginpage);
 		PageFactory.initElements(eventDriver, welcomepage);
 		PageFactory.initElements(eventDriver, adminpage);
-
-
-
 
 
 		menu.logout();
@@ -72,8 +66,6 @@ public class TestCase07_01 {
 		adminpage.resetUsers();
 
 		Alert popup = eventDriver.switchTo().alert();
-
-
 
 		String popupText = popup.getText();
 		if(popupText.equals("Users reset.")) {

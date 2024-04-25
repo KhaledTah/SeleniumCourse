@@ -17,8 +17,10 @@ public class Exercise03b {
 		WebDriver driver1 = new ChromeDriver();
 
 		driver1.get("https://app-tst-training.azurewebsites.net/");
+
 		WebElement btn = driver1.findElement(By.id("logout"));
 		btn.click();
+
 		WebElement dropdown = driver1.findElement(By.name("language"));
 		Select cboOptions = new Select(dropdown);
 		cboOptions.selectByVisibleText("French");

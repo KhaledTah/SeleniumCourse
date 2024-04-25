@@ -36,31 +36,10 @@ public class ConnectionPage
 	@FindBy(xpath = "//*[@id=\"records\"]/table")	
 	private WebElement tabel;
 
+	private WebDriver driver;
+
 	private MyConnectionsResultTable resultTable;
 
-	public MyConnectionsResultTable getResultTable() {
-		return resultTable;
-	}
-
-	public void setResultTable(MyConnectionsResultTable resultTable) {
-		this.resultTable = resultTable;
-	}
-
-	public WebElement getTabel() {
-		return tabel;
-	}
-
-	public void setTabel(WebElement tabel) {
-		this.tabel = tabel;
-	}
-
-	public WebElement getDivMyConnections() {
-		return divMyConnections;
-	}
-
-	public void setDivMyConnections(WebElement divMyConnections) {
-		this.divMyConnections = divMyConnections;
-	}
 
 	public ConnectionPage(WebDriver driver) {
 		this.driver = driver;
@@ -70,10 +49,6 @@ public class ConnectionPage
 		PageFactory.initElements(DriverManager.getEventDriver(), this);
 
 	}
-
-
-	private WebDriver driver;
-
 
 
 	public void resetAddressBook() {
@@ -95,7 +70,6 @@ public class ConnectionPage
 
 	public ConnectionPage searchConnecitonsByFirstName(Connection c) {
 		menuConnections.click();
-
 
 
 
@@ -132,6 +106,33 @@ public class ConnectionPage
 
 
 	}
+
+	public MyConnectionsResultTable getResultTable() {
+		return resultTable;
+	}
+
+	public void setResultTable(MyConnectionsResultTable resultTable) {
+		this.resultTable = resultTable;
+	}
+
+	public WebElement getTabel() {
+		return tabel;
+	}
+
+	public void setTabel(WebElement tabel) {
+		this.tabel = tabel;
+	}
+
+	public WebElement getDivMyConnections() {
+		return divMyConnections;
+	}
+
+	public void setDivMyConnections(WebElement divMyConnections) {
+		this.divMyConnections = divMyConnections;
+	}
+
+
+
 
 
 

@@ -16,7 +16,6 @@ public class TestCaseGoogleSearch4 {
 
 	public class GoogleSearchPage{
 
-
 		@FindBy(name = "q")
 		private WebElement searchBox;
 
@@ -36,13 +35,11 @@ public class TestCaseGoogleSearch4 {
 			PageFactory.initElements(driver, this);
 		}
 
-
 		public GoogleSearchPage switchToFrench() {
 			buttonFrench.click();
 			return this;
 
 		}
-
 		public GoogleSearchPage searchFor(String text) {
 			searchBox.sendKeys(text);
 			buttonSearch.click();

@@ -17,30 +17,17 @@ public class TestCaseGoogleSearch3 {
 
 		private WebDriver driver;
 
-
 		@FindBy(how = How.NAME, using = "q")
 		private WebElement searchBox;
 
 		@FindBy(how = How.NAME, using = "btnK")
 		private WebElement buttonSearch;
 
-
-
-
 		public void searchFor(String text) {
 			searchBox.sendKeys(text);
 			buttonSearch.click();
 		}
-
 	}
-
-
-
-
-
-
-
-
 
 	@Test
 	public void SearchSelenium() {
@@ -54,29 +41,14 @@ public class TestCaseGoogleSearch3 {
 	}
 
 
-
 	@BeforeTest
 	public  void beforeTest() {
-
 		System.out.println("Starting the test...");
-
-
-
 	}
-
-
-
-
-
-
 
 	@AfterTest
 	public  void finishTest() {
-
 		System.out.println("Ending the test...");
-
-
-
 	}
 }
 

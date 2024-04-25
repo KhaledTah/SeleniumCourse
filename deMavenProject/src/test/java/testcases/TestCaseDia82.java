@@ -65,7 +65,6 @@ public class TestCaseDia82 {
 		eventDriver = new EventFiringDecorator<WebDriver>(listener).decorate(normalDriver);
 		eventDriver.get("https://app-tst-training.azurewebsites.net/");
 
-
 		menu = new MenuPage();
 		loginpage = new LoginPage();
 		welcomepage = new WelcomePage();
@@ -73,11 +72,6 @@ public class TestCaseDia82 {
 		newpage = new NewPage();
 		statspage = new StatsPage();
 		statstable = new StatsTable();
-
-
-
-
-
 	}
 
 
@@ -88,21 +82,25 @@ public class TestCaseDia82 {
 		WebDriver eventDriver = new EventFiringDecorator<WebDriver>(listener).decorate(normalDriver);
 		eventDriver.get("https://app-tst-training.azurewebsites.net/");
 		menu.logout1();
-
-
 	}
 
 
 	@Test
 	public void verifyTableData() {
+
 		loginpage.loginWith1("admin", "superduper");
 		Assert.assertTrue(welcomepage.getWelcomeMessage().contains("Welcome"));
 		System.out.println("1: " + welcomepage.getWelcomeMessage());
+
 		Connection c = new Connection("khaled", "Tahriou", "M", "tahrdfdf@hotmail.com", "1111/11.67.89", "02", "AS", "Senior");
 		newpage.createNewConnectionWith1(c.getFirstName(), c.getLastName(), c.getGender(), c.getEmail(), c.getTelephone(), c.getCompany(), c.getSsu(), c.getSeniority());
+
 		menu.OpenStatsPage1();
+
 		System.out.println("Row count: " + statstable.getRowCount());
+
 		statstable.printTableData();
+
 		System.out.println("Value cell with row 1 & col 1 : " + statstable.getText(1, 1).toString());
 		System.out.println("Value cell with row 1 & col 2 : " + statstable.getText(1, 2).toString());
 		System.out.println("Value cell with row 1 & col 3 : " + statstable.getText(1, 3).toString());
@@ -117,7 +115,6 @@ public class TestCaseDia82 {
 			System.out.println("The data in the table is not correct");
 		}
 
-
 		newpage.createNewConnectionWith1("Samira", c.getLastName(), "F", c.getEmail(), c.getTelephone(), c.getCompany(), c.getSsu(), c.getSeniority());
 		menu.OpenStatsPage1();
 		statstable.printTableData();
@@ -131,16 +128,10 @@ public class TestCaseDia82 {
 
 	}
 
-
-
-
-
 	@AfterEach
 	public  void finishTest() {
 
 		System.out.println("Ending the test");
-
-
 	}
 }
 

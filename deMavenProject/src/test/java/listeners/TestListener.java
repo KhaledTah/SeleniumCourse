@@ -30,9 +30,6 @@ import testcases.BaseTest;
 public class TestListener extends BaseTest implements ITestListener{
 
 
-
-
-
 	@Override
 	public void onTestStart(ITestResult result) {
 		//  System.out.println(result.getTestContext().getName() +" test case started");					
@@ -46,18 +43,12 @@ public class TestListener extends BaseTest implements ITestListener{
 		System.out.println("Test '" + testName + "' started.");
 	}
 
-
-
 	@Override
 	public void onTestSuccess(ITestResult result) {
 		//  System.out.println("The name of the testcase passed is :"+ result.getTestName());		
 		System.out.println("The name of the testcase PASSED is :"+ result.getTestContext().getName() + " - " + result.getMethod().getMethodName()) ;	
 		System.out.println("");
-
-
 	}
-
-
 
 	@Override
 	public void onTestFailure(ITestResult result) {
@@ -65,6 +56,14 @@ public class TestListener extends BaseTest implements ITestListener{
 		// captureScreenshot(result.getName());
 		captureScreenshot(result.getMethod().getMethodName()+".jpg");
 		//   captureScreenshot(result.getName() +".jpg");
+		System.out.println("");
+
+
+	}
+
+	@Override
+	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
+		System.out.println("onTestFailedButWithinSuccessPercentage: " +result.getTestContext().getName() + " - " + result.getMethod().getMethodName());
 		System.out.println("");
 
 
@@ -81,23 +80,11 @@ public class TestListener extends BaseTest implements ITestListener{
 	}
 
 
-
-	@Override
-	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
-		System.out.println("onTestFailedButWithinSuccessPercentage: " +result.getTestContext().getName() + " - " + result.getMethod().getMethodName());
-		System.out.println("");
-
-
-	}
-
-
-
 	@Override
 	public void onStart(ITestContext context) {
 		System.out.println("onStart method started (" + context.getName() + ")." );
 
 	}
-
 
 
 	@Override

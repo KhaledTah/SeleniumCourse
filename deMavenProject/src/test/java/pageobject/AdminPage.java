@@ -17,6 +17,9 @@ public class AdminPage {
 	@FindBy(id = "new_password")			
 	private WebElement txtPassword;
 
+	@FindBy(className = "feedback")			
+	private WebElement txtError;
+
 
 	@FindBy(xpath = "//*[@id=\"admin\"]/table[1]/tbody/tr[3]/td[2]/span")			
 	private WebElement btnCreate;
@@ -24,10 +27,18 @@ public class AdminPage {
 	@FindBy(xpath = "//td[@onclick='resetUsers(true)']/label1")
 	private WebElement btnResetUsers;
 
-	@FindBy(className = "feedback")			
-	private WebElement txtError;
-
 	private WebDriver driver;
+
+
+	public AdminPage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+
+	public AdminPage() {
+
+		PageFactory.initElements(DriverManager.getEventDriver(), this);
+	}
 
 	public void createNewUserWith(String username, String password) {
 		txtUsername.clear();
@@ -50,15 +61,7 @@ public class AdminPage {
 		btnResetUsers.click();
 	}
 
-	public AdminPage(WebDriver driver) {
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
-	}
 
-	public AdminPage() {
-
-		PageFactory.initElements(DriverManager.getEventDriver(), this);
-	}
 
 	public String getErrorMessage() {
 		return txtError.getText();

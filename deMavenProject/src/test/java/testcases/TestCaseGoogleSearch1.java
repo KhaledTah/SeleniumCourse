@@ -32,7 +32,6 @@ public class TestCaseGoogleSearch1 extends BaseTest {
 			this.driver.manage().window().maximize();
 
 			this.driver.findElement(By.id("L2AGLb")).click();
-
 		}
 
 		public WebElement getTextboxSearch() {
@@ -46,7 +45,6 @@ public class TestCaseGoogleSearch1 extends BaseTest {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(1));
 			WebElement button = wait.until(ExpectedConditions.elementToBeClickable(By.name("btnK")));
 			return button;
-
 		}
 	}
 
@@ -74,8 +72,6 @@ public class TestCaseGoogleSearch1 extends BaseTest {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(1));
 		wait.until(ExpectedConditions.elementToBeClickable(By.name("btnK"))).click();
 		driver.quit();
-
-
 	}
 
 
@@ -93,15 +89,7 @@ public class TestCaseGoogleSearch1 extends BaseTest {
 		wait.until(ExpectedConditions.elementToBeClickable(By.name("btnK"))).click();
 		driver.quit();
 
-
-
 	}
-
-
-
-
-
-
 
 
 }

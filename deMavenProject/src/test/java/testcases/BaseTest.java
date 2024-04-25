@@ -34,64 +34,54 @@ public class BaseTest {
 	public static WebDriver normalDriver;
 	public static WebDriverListener listener;
 	public static WebDriver eventDriver ;
-	
+
 	public static MenuPage menu ;
 	public static LoginPage loginpage;
 	public static WelcomePage welcomepage ;
 	public static AdminPage adminpage ;
-	
+
 	@BeforeTest
 	public  void setup() {
-	
-	
+
 		System.out.println("@BeforeTest");
 		normalDriver = DriverManager.getDriver1();
 		listener = new CustomListener();
-	 eventDriver = new EventFiringDecorator(listener).decorate(normalDriver);
-	 eventDriver = 	 DriverManager.getDriver1();
+		eventDriver = new EventFiringDecorator(listener).decorate(normalDriver);
+		eventDriver = 	 DriverManager.getDriver1();
 
 		eventDriver.manage().window().maximize();
 		eventDriver.get("https://app-tst-training.azurewebsites.net/");
-		
-		 menu = new MenuPage();
-		 loginpage = new LoginPage();
-		 welcomepage = new WelcomePage();
-		 adminpage = new AdminPage();
-		
+
+		menu = new MenuPage();
+		loginpage = new LoginPage();
+		welcomepage = new WelcomePage();
+		adminpage = new AdminPage();
+
 		PageFactory.initElements(eventDriver, menu);
 		PageFactory.initElements(eventDriver, loginpage);
 		PageFactory.initElements(eventDriver, welcomepage);
 		PageFactory.initElements(eventDriver, adminpage);
-		
 
-
-	menu.logout();
-
-	
-		
-	
-
-
+		menu.logout();
 
 	}
-	
+
 	@AfterTest
 	public  void finishTest() {
 
-System.out.println("@AfterTest");
-//DriverManager.getDriver1().quit();
+		System.out.println("@AfterTest");
+		//DriverManager.getDriver1().quit();
 
 	}
-	
-	
+
 	@AfterSuite
 	public  void finishTestSuite() {
 		System.out.println("@AfterSuite");
 
-	DriverManager.getDriver1().quit();
+		DriverManager.getDriver1().quit();
 
 	}
-	
+
 	public void captureScreenshot(String fileName) {
 		TakesScreenshot takesScreenshot = (TakesScreenshot) DriverManager.getDriver1();
 		File sourceFile = takesScreenshot.getScreenshotAs(OutputType.FILE);

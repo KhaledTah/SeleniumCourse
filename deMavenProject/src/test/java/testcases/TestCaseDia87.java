@@ -44,21 +44,22 @@ import utils.MyConnectionsResultTable;
 
 public class TestCaseDia87 {
 
+	public static WebDriverListener listener;
+	public static WebDriver eventDriver;
+	public static WebDriver normalDriver;
+
 	public static MenuPage menu ;
 	public static LoginPage loginpage;
 	public static WelcomePage welcomepage ;
 	public static AdminPage adminpage ;
 	public static StatsPage statspage ;
 	public static StatsTable statstable ;
-	
-	// Nog aan te passen o.b.v. feedback
-	public static MyConnectionsResultTable myconnectionsresulttable;
 
-	public static WebDriverListener listener;
-	public static WebDriver eventDriver;
-	public static WebDriver normalDriver;
 	public static NewPage newpage;
 	public static ConnectionPage connectionpage;
+
+	// Nog aan te passen o.b.v. feedback --> Zie TestCaseDia98
+	public static MyConnectionsResultTable myconnectionsresulttable;
 
 
 	@BeforeAll
@@ -70,7 +71,6 @@ public class TestCaseDia87 {
 		eventDriver = new EventFiringDecorator<WebDriver>(listener).decorate(normalDriver);
 		eventDriver.get("https://app-tst-training.azurewebsites.net/");
 
-
 		menu = new MenuPage();
 		loginpage = new LoginPage();
 		welcomepage = new WelcomePage();
@@ -79,13 +79,7 @@ public class TestCaseDia87 {
 		connectionpage = new ConnectionPage();
 		statspage = new StatsPage();
 		statstable = new StatsTable();
-		
-		// Nog aan te passen o.b.v. feedback
 		myconnectionsresulttable = new MyConnectionsResultTable();
-
-
-
-
 	}
 
 
@@ -97,20 +91,23 @@ public class TestCaseDia87 {
 		eventDriver.get("https://app-tst-training.azurewebsites.net/");
 		menu.logout1();
 
-
 	}
 
 
 
 	@Test
 	public void verifyTableData() {
+
 		loginpage.loginWith1("admin", "superduper");
 		Assert.assertTrue(welcomepage.getWelcomeMessage().contains("Welcome"));
 		System.out.println("1: " + welcomepage.getWelcomeMessage());
+
 		Connection c = new Connection("khaled", "Tahriou", "M", "tahrdfdf@hotmail.com", "1111/11.67.89", "02", "AS", "Senior");
 		newpage.createNewConnectionWith1(c.getFirstName(), c.getLastName(), c.getGender(), c.getEmail(), c.getTelephone(), c.getCompany(), c.getSsu(), c.getSeniority());
 		menu.OpenStatsPage1();
+
 		System.out.println("Row count: " + statstable.getRowCount());
+
 		System.out.println("Value cell with row 1 & col 1 : " + statstable.getText(1, 1).toString());
 		System.out.println("Value cell with row 1 & col 2 : " + statstable.getText(1, 2).toString());
 		System.out.println("Value cell with row 1 & col 3 : " + statstable.getText(1, 3).toString());
@@ -124,7 +121,6 @@ public class TestCaseDia87 {
 		{
 			System.out.println("The data in the table is not correct");
 		}
-
 
 		menu.OpenConnectionPage1();
 		connectionpage.resetAddressBook();
@@ -140,6 +136,7 @@ public class TestCaseDia87 {
 		menu.OpenConnectionPage1();
 		connectionpage.searchConnectionsByFirstName("Peter");
 		menu.OpenStatsPage1();
+
 		/*
 		if(statstable.getText(2, 3).equals("13") && statstable.getText(3, 3).toString().equals("3")) {
 			System.out.println("The data in the table is correct");		
@@ -149,11 +146,13 @@ public class TestCaseDia87 {
 		}
 		connectionpage.searchConnectionsByFirstName("Peter");
 		 */
+
 		assert statstable.getText(2, 3).equals("13") : "The data in the table is not correct";
 		assert statstable.getText(3, 3).equals("3") : "The data in the table is not correct";
+
 		connectionpage.searchConnectionsByFirstName("Peter");
 
-		// Nog aan te passen o.b.v. feedback
+		// Nog aan te passen o.b.v. feedback --> Zie TestCaseDia98
 		System.out.println("Value cell with row 2 & col 1 : " + myconnectionsresulttable.getText(2, 1).toString());
 
 		if(myconnectionsresulttable.getText(2, 1).contains("Peter Parker")) {
@@ -163,7 +162,6 @@ public class TestCaseDia87 {
 			System.out.println("The connections page doesn't contain Peter Parker as a record");
 		}
 	}
-
 
 
 	@AfterEach

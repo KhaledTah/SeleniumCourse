@@ -37,7 +37,6 @@ import pageobject.NewPage;
 import pageobject.WelcomePage;
 import utils.Connection;
 
-
 public class TestCaseDia72 {
 
 	public static MenuPage menu ;
@@ -60,15 +59,10 @@ public class TestCaseDia72 {
 
 
 		menu = new MenuPage(eventDriver);
-
 		loginpage = new LoginPage();
-
 		welcomepage = new WelcomePage(eventDriver);
 		adminpage = new AdminPage(eventDriver);
 		connectionpage = new NewPage(eventDriver);
-
-
-
 	}
 
 
@@ -78,10 +72,7 @@ public class TestCaseDia72 {
 		WebDriverListener listener =  new CustomListener();
 		WebDriver eventDriver = new EventFiringDecorator<WebDriver>(listener).decorate(normalDriver);
 		eventDriver.get("https://app-tst-training.azurewebsites.net/");
-
 		menu.logout1();
-
-
 	}
 
 
@@ -92,8 +83,7 @@ public class TestCaseDia72 {
 		Assert.assertTrue(welcomepage.getWelcomeMessage().contains("Welcome"));
 		System.out.println("1: " + welcomepage.getWelcomeMessage());
 		Connection c = new Connection("khaled", "Tahriou", "M", "tahrdfdf@hotmail.com", "1111/11.67.89", "02", "AS", "Senior");
-		connectionpage.createNewConnectionWith2(c);
-
+		connectionpage.createNewConnectionWithConnection(c);
 	}
 
 	@Test
@@ -103,14 +93,11 @@ public class TestCaseDia72 {
 		System.out.println("1: " + welcomepage.getWelcomeMessage());
 		Connection c = new Connection("khaled", "Tahriou", "M", "tahrdfdf@hotmail.com", "1111/11.67.89", "02", "AS", "Senior");
 		connectionpage.createNewConnectionWith1(c.getFirstName(), c.getLastName(), "", "", "", "", "", "");
-
 	}
 
 	@AfterEach
 	public  void finishTest() {
-
 		System.out.println("Ending the test");
-
 
 	}
 }

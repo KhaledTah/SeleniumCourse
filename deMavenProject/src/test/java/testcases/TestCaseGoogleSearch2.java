@@ -15,8 +15,6 @@ public class TestCaseGoogleSearch2 {
 
 		public GoogleSearchPage(WebDriver driver) {
 			this.driver = driver;
-
-
 		}
 
 		public void searchFor(String text) {
@@ -25,9 +23,6 @@ public class TestCaseGoogleSearch2 {
 			this.driver.findElement(By.name("q")).sendKeys(text);
 			this.driver.findElement(By.name("btnK")).click();
 		}
-
-
-
 	}
 
 
@@ -39,29 +34,14 @@ public class TestCaseGoogleSearch2 {
 		//driver.quit();
 	}
 
-
-
 	@BeforeTest
 	public  void beforeTest() {
-
 		System.out.println("Starting the test...");
-
-
-
 	}
-
-
-
-
-
-
 
 	@AfterTest
 	public  void finishTest() {
-
 		System.out.println("Ending the test...");
-
-
 	}
 }
 
